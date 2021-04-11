@@ -1,0 +1,80 @@
+name: souffle-dsl
+synopsis: Haskell EDSL for Souffle
+description: Haskell EDSL for Souffle.
+version: 0.1.0
+homepage: https://github.com/luc-tielen/souffle-dsl#README.md
+license: MIT
+author: Luc Tielen
+maintainer: luc.tielen@gmail.com
+copyright: 2021 Luc Tielen
+category: Logic Programming, DSL
+github: luc-tielen/souffle-dsl
+extra-source-files:
+  - README.md
+  - CHANGELOG.md
+  - LICENSE
+
+dependencies:
+  - base >= 4.12 && < 5
+  - mtl >= 2.0 && < 3
+  - template-haskell >= 2 && < 3
+  - type-errors-pretty >= 0.0.1.0 && < 1
+  - text >= 1.2.4.0 && < 2
+  - temporary >= 1.3 && < 2
+  - souffle-haskell >= 2.1.0 && < 3
+
+default-extensions:
+  - OverloadedStrings
+  - LambdaCase
+  - ScopedTypeVariables
+
+ghc-options:
+  - -Wall
+  - -Weverything
+  - -Wno-safe
+  - -Wno-unsafe
+  - -Wno-implicit-prelude
+  - -Wno-missed-specializations
+  - -Wno-all-missed-specializations
+  - -Wno-missing-import-lists
+  - -Wno-type-defaults
+  - -Wno-missing-local-signatures
+  - -Wno-monomorphism-restriction
+  - -Wno-missing-deriving-strategies
+  - -Wno-prepositive-qualified-module
+  - -Wno-missing-safe-haskell-mode
+  - -optP-Wno-nonportable-include-path
+  - -fhide-source-paths
+  - -fno-show-valid-hole-fits
+  - -fno-sort-valid-hole-fits
+
+cxx-options:
+  - -std=c++17
+
+library:
+  source-dirs: lib
+  cxx-sources: cbits/*.cpp
+  cxx-options:
+    - -Wall
+  when:
+    - condition: os(linux)
+      extra-libraries: stdc++
+  generated-other-modules:
+    - Paths_souffle_haskell
+
+tests:
+  souffle-dsl-test:
+    main: test.hs
+    source-dirs: tests
+    cxx-sources: tests/fixtures/*.cpp
+    when:
+      - condition: os(darwin)
+        extra-libraries: c++
+    dependencies:
+      - hspec >= 2.6.1 && < 3.0.0
+      - hspec-hedgehog == 0.*
+      - hedgehog == 1.*
+      - neat-interpolation == 0.*
+      - souffle-haskell
+    cxx-options:
+      - -D__EMBEDDED_SOUFFLE__
