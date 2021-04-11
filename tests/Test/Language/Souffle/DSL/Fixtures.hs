@@ -1,13 +1,13 @@
 
 {-# LANGUAGE DataKinds, TypeFamilies, DeriveGeneric, DeriveAnyClass #-}
 
-module Test.Language.Souffle.Experimental.Fixtures
-  ( module Test.Language.Souffle.Experimental.Fixtures
+module Test.Language.Souffle.DSL.Fixtures
+  ( module Test.Language.Souffle.DSL.Fixtures
   ) where
 
 import GHC.Generics
 import Language.Souffle.Class
-import Language.Souffle.Experimental
+import Language.Souffle.DSL
 
 data CompiledProgram = CompiledProgram
 

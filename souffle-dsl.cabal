@@ -28,12 +28,11 @@ source-repository head
 
 library
   exposed-modules:
-      Language.Souffle.Experimental
+      Language.Souffle.DSL
   other-modules:
       Paths_souffle_dsl
-      Paths_souffle_haskell
   autogen-modules:
-      Paths_souffle_haskell
+      Paths_souffle_dsl
   hs-source-dirs:
       lib
   default-extensions: OverloadedStrings LambdaCase ScopedTypeVariables
@@ -41,7 +40,11 @@ library
   cxx-options: -std=c++17 -Wall
   build-depends:
       base >=4.12 && <5
+    , containers >=0.6.2.1 && <1
+    , directory >=1.3.6.0 && <2
+    , filepath >=1.4.2.1 && <2
     , mtl >=2.0 && <3
+    , process >=1.6.9.0 && <2
     , souffle-haskell >=2.1.0 && <3
     , template-haskell >=2 && <3
     , temporary >=1.3 && <2
@@ -56,9 +59,9 @@ test-suite souffle-dsl-test
   type: exitcode-stdio-1.0
   main-is: test.hs
   other-modules:
-      Test.Language.Souffle.Experimental.Fixtures
-      Test.Language.Souffle.Experimental.FixturesCompiled
-      Test.Language.Souffle.ExperimentalSpec
+      Test.Language.Souffle.DSL.Fixtures
+      Test.Language.Souffle.DSL.FixturesCompiled
+      Test.Language.Souffle.DSLSpec
       Paths_souffle_dsl
   hs-source-dirs:
       tests
@@ -67,14 +70,18 @@ test-suite souffle-dsl-test
   cxx-options: -std=c++17 -D__EMBEDDED_SOUFFLE__
   cxx-sources:
       tests/fixtures/path.cpp
-      tests/fixtures/round_trip.cpp
   build-depends:
       base >=4.12 && <5
+    , containers >=0.6.2.1 && <1
+    , directory >=1.3.6.0 && <2
+    , filepath >=1.4.2.1 && <2
     , hedgehog ==1.*
     , hspec >=2.6.1 && <3.0.0
     , hspec-hedgehog ==0.*
     , mtl >=2.0 && <3
     , neat-interpolation ==0.*
+    , process >=1.6.9.0 && <2
+    , souffle-dsl
     , souffle-haskell
     , template-haskell >=2 && <3
     , temporary >=1.3 && <2

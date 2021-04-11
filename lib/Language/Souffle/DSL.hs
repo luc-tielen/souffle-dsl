@@ -68,7 +68,7 @@
 
     For more examples, take a look at the <https://github.com/luc-tielen/souffle-haskell/blob/2c24e1e169da269c45fc192ab5efd4ff2196114b/tests/Test/Language/Souffle/ExperimentalSpec.hs tests>.
 -}
-module Language.Souffle.Experimental
+module Language.Souffle.DSL
   ( -- * DSL-related types and functions
     -- ** Types
     Predicate(..)

@@ -2,11 +2,11 @@
 {-# LANGUAGE DeriveGeneric, DeriveAnyClass, TypeApplications, QuasiQuotes, TypeOperators #-}
 {-# LANGUAGE DataKinds, TypeFamilies #-}
 
-module Test.Language.Souffle.ExperimentalSpec
-  ( module Test.Language.Souffle.ExperimentalSpec
+module Test.Language.Souffle.DSLSpec
+  ( module Test.Language.Souffle.DSLSpec
   ) where
 
-import qualified Test.Language.Souffle.Experimental.Fixtures as F
+import qualified Test.Language.Souffle.DSL.Fixtures as F
 import Test.Hspec
 import GHC.Generics
 import Data.Int
@@ -15,7 +15,7 @@ import Data.Maybe (fromJust)
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as TL
 import System.IO.Temp
-import Language.Souffle.Experimental
+import Language.Souffle.DSL
 import Language.Souffle.Class
 import Language.Souffle.Interpreted as I
 import Language.Souffle.Compiled as C

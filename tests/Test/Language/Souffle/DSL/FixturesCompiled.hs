@@ -1,13 +1,13 @@
 
 {-# OPTIONS_GHC -optc-std=c++17 -D__EMBEDDED_SOUFFLE__ #-}
 {-# LANGUAGE TypeApplications, TemplateHaskell #-}
-module Test.Language.Souffle.Experimental.FixturesCompiled () where
+module Test.Language.Souffle.DSL.FixturesCompiled () where
 
 -- NOTE: this module can't be grouped together with "Fixtures"
 -- due to TemplateHaskell staging restriction.
 
-import Test.Language.Souffle.Experimental.Fixtures
-import Language.Souffle.Experimental
+import Test.Language.Souffle.DSL.Fixtures
+import Language.Souffle.DSL
 
 $(embedProgram CompiledProgram $ do
   Predicate edge <- predicateFor @Edge
