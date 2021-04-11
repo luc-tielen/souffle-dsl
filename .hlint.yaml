@@ -53,16 +53,16 @@
 - ignore:
     name: Reduce duplication
     within:
-      - Test.Language.Souffle.ExperimentalSpec
+      - Test.Language.Souffle.DSLSpec
 - ignore:
     name: Redundant bracket
     within:
-      - Test.Language.Souffle.ExperimentalSpec
+      - Test.Language.Souffle.DSLSpec
       - Main
 - ignore:
     name: Use camelCase
     within:
-      - Language.Souffle.Experimental
+      - Language.Souffle.DSL
 
 
 # Define some custom infix operators
